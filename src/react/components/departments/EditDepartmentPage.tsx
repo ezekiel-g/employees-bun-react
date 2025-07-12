@@ -62,6 +62,7 @@ const EditDepartmentPage = () => {
       ) as Department
 
       setDepartment(updatedDepartmentData)
+      setOriginalName(name)
       setSuccessMessages(['Department edited successfully'])
       return
     }
