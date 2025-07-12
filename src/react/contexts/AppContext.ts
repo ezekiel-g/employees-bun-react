@@ -2,7 +2,15 @@ import { createContext, useContext } from 'react'
 
 const BACK_END_URL = import.meta.env.MODE === 'development'
   ? 'http://localhost:3000'
-  : 'https://production-url.com'
+  : (() => {
+      const url = import.meta.env.BACK_END_URL
+
+      if (!url || url === 'undefined' || !url.startsWith('http')) {
+        throw new Error('BACK_END_URL environment variable required')
+      }
+
+      return url
+    })()
 
 interface AppContextType {
   backEndUrl: string
