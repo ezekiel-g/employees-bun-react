@@ -101,6 +101,8 @@ const EditEmployeePage = () => {
       const updatedEmployeeData = camelcaseKeys(fetchResult.data) as Employee
 
       setEmployee(updatedEmployeeData)
+      setOriginalFirstName(firstName)
+      setOriginalLastName(lastName)
       setSuccessMessages(['Employee edited successfully'])
       return
     }
