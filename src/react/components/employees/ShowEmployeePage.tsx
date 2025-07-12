@@ -88,7 +88,7 @@ const ShowEmployeePage = () => {
       {errorMessageDisplay}
       <h2>
         {employee.lastName}
-        ,
+        {', '}
         {employee.firstName}
       </h2>
 

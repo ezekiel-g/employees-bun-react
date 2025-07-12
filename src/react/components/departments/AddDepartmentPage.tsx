@@ -18,7 +18,7 @@ const AddDepartmentPage = () => {
     setSuccessMessages([])
     setErrorMessages([])
 
-    const validationResult = await validateInput(
+    const validationResult = validateInput(
       { name, code, location },
       'departments',
       'INSERT',

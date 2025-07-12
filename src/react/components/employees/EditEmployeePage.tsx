@@ -22,6 +22,8 @@ const EditEmployeePage = () => {
   const [hireDate, setHireDate] = useState('')
   const [successMessages, setSuccessMessages] = useState<string[]>([])
   const [errorMessages, setErrorMessages] = useState<string[]>([])
+  const [originalFirstName, setOriginalFirstName] = useState('')
+  const [originalLastName, setOriginalLastName] = useState('')
   const navigate = useNavigate()
   const { id } = useParams()
   const { backEndUrl } = useAppContext()
@@ -32,7 +34,7 @@ const EditEmployeePage = () => {
     setSuccessMessages([])
     setErrorMessages([])
 
-    const validationResult = await validateInput(
+    const validationResult = validateInput(
       {
         firstName,
         lastName,
@@ -72,7 +74,7 @@ const EditEmployeePage = () => {
     }
 
     if (
-      !window.confirm(`Edit ${lastName}, ${firstName}?`)
+      !window.confirm(`Edit ${originalLastName}${', '}${originalFirstName}?`)
     ) {
       return
     }
@@ -137,6 +139,8 @@ const EditEmployeePage = () => {
       setCountryCode(employeeData.countryCode || '')
       setPhoneNumber(employeeData.phoneNumber || '')
       setIsActive(employeeData.isActive || false)
+      setOriginalFirstName(employeeData.firstName || '')
+      setOriginalLastName(employeeData.lastName || '')
 
       const fetchedHireDate = employeeData.hireDate
 
@@ -179,10 +183,10 @@ const EditEmployeePage = () => {
       <h2>
         Edit
         {' '}
-        {lastName}
+        {originalLastName}
         ,
         {' '}
-        {firstName}
+        {originalFirstName}
       </h2>
 
       <br />
