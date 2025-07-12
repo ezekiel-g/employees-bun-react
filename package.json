@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "bun --hot --env-file .env src/index.html",
-    "start": "bun src/index.html",
-    "build": "bun run build.ts",
+    "start": "bun dist/index.html",
+    "build": "bun --env-file .env build.ts",
     "test": "bun test --watch --clear-screen",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
