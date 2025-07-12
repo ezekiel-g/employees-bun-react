@@ -18,11 +18,7 @@ const mockShowErrors = mock((messages: string[]) =>
   messages.length > 0 ? [<div key="test">{messages.join(', ')}</div>] : null,
 )
 
-const mockValidateInput = mock(() => Promise.resolve({
-  valid: true,
-  messages: [],
-}))
-
+const mockValidateInput = mock(() => ({ valid: true, messages: [] }))
 const mockAppContext = { backEndUrl: 'http://localhost:3000' }
 
 mock.module('@/util/fetchFromBackEnd', () => ({

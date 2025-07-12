@@ -27,7 +27,7 @@ const AddEmployeePage = () => {
     setSuccessMessages([])
     setErrorMessages([])
 
-    const validationResult = await validateInput(
+    const validationResult = validateInput(
       {
         firstName,
         lastName,

@@ -14,6 +14,7 @@ const EditDepartmentPage = () => {
   const [location, setLocation] = useState('')
   const [successMessages, setSuccessMessages] = useState<string[]>([])
   const [errorMessages, setErrorMessages] = useState<string[]>([])
+  const [originalName, setOriginalName] = useState('')
   const navigate = useNavigate()
   const { id } = useParams()
   const { backEndUrl } = useAppContext()
@@ -24,7 +25,7 @@ const EditDepartmentPage = () => {
     setSuccessMessages([])
     setErrorMessages([])
 
-    const validationResult = await validateInput(
+    const validationResult = validateInput(
       { name, code, location },
       'departments',
       'UPDATE',
@@ -44,7 +45,7 @@ const EditDepartmentPage = () => {
       return
     }
 
-    if (!window.confirm(`Edit ${department.name}?`))
+    if (!window.confirm(`Edit ${originalName}?`))
       return
 
     const fetchResult = await fetchFromBackEnd(
@@ -83,6 +84,7 @@ const EditDepartmentPage = () => {
       setName(departmentData.name ?? '')
       setCode(departmentData.code ?? '')
       setLocation(departmentData.location ?? '')
+      setOriginalName(departmentData.name ?? '')
       return
     }
 
@@ -102,7 +104,8 @@ const EditDepartmentPage = () => {
       {errorMessageDisplay}
       <h2>
         Edit
-        {department.name}
+        {' '}
+        {originalName}
       </h2>
 
       <br />
