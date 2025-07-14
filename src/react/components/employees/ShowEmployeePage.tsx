@@ -141,7 +141,7 @@ const ShowEmployeePage = () => {
             <td>{formatDateAndTime(employee.hireDate, 'date' as any)}</td>
           </tr>
           <tr>
-            <td>Date created</td>
+            <td>Date entered</td>
             <td>{formatDateAndTime(employee.createdAt)}</td>
           </tr>
           <tr>
