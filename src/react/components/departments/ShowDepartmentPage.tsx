@@ -91,7 +91,7 @@ const ShowDepartmentPage = () => {
             <td>{department.location}</td>
           </tr>
           <tr>
-            <td>Date created</td>
+            <td>Date entered</td>
             <td>{formatDateAndTime(department.createdAt)}</td>
           </tr>
           <tr>

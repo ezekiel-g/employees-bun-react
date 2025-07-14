@@ -16,7 +16,7 @@ export const InsertEmployeeSchema = z.object({
         return nameRegex.test(value)
       },
       'First name can be maximum 100 characters and can contain only letters, '
-      + 'apostrophes, hyphens, and spaces between words',
+      + 'apostrophes, hyphens and spaces between words',
     ),
   lastName: z
     .string({ required_error: 'Last name required' })
@@ -28,7 +28,7 @@ export const InsertEmployeeSchema = z.object({
         return nameRegex.test(value)
       },
       'Last name can be maximum 100 characters and can contain only letters, '
-      + 'apostrophes, hyphens, and spaces between words',
+      + 'apostrophes, hyphens and spaces between words',
     ),
   title: z
     .string({ required_error: 'Job title required' })
@@ -40,7 +40,7 @@ export const InsertEmployeeSchema = z.object({
         return nameRegex.test(value)
       },
       'Job title can be maximum 100 characters and can contain only letters, '
-      + 'apostrophes, hyphens, and spaces between words',
+      + 'apostrophes, hyphens and spaces between words',
     ),
   departmentId: z
     .string({ required_error: 'Department required' })
